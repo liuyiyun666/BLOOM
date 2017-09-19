@@ -8,9 +8,17 @@
         </header>
 
         <div class="content">
-            <aside></aside>
+            <aside>
+                <ul>
+                    <li v-for="(ele,index) in classification" :class="{'active':ind === index}" @click="changeBgc(index)">{{ele.name}}</li>
+                </ul>
+            </aside>
             <div class="right">
-
+                <div v-for="(ele,index) in classification" class="bigbox">
+                    <div v-for="(data,i) in ele.themes" class="smallbox">
+                        <img :src="data.iconURL"/>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -20,7 +28,27 @@
 </template>
 
 <script>
-    
+export default{
+    data(){
+        return{
+            ind: 0
+        }
+    },
+    methods:{
+        changeBgc:function(index){
+            this.ind =index
+        }
+    },
+    computed:{
+        classification(){
+        //通过计算数据  实时接收数据
+        return this.$store.state.classification
+        }
+    },
+    mounted(){
+        this.$store.dispatch("getClassification")
+    }
+}
 </script>
 
 
@@ -33,7 +61,7 @@
         left:0;
         top:0;
         background:#fff;
-        position:relative;
+        z-index:1;
         a{
             width:100%;
             height:100%;
@@ -46,7 +74,7 @@
             height:0.3rem;
             display:block;
             position:absolute;
-            left:0.6rem;
+            left:1rem;
             font-size:0.3rem;
             top:0.3rem;
             color:gray;
@@ -69,21 +97,53 @@
 
     .content{
         width:100%;
-        overflow:hidden;
+        background: #ededed;
+        padding-top: 0.9rem;
+        padding-bottom: 1rem;
         aside{
             width:1.8rem;
             height:100%;
-            background: #ededed;
             position:fixed;
             left:0;
-            top:0.91rem;
+            top:0.9rem;
+            ul{
+                .active{
+                    background:#fff;
+                    border-left:solid 0.09rem #333;
+                }
+                li{
+                    width:100%;
+                    height:1rem;
+                    color:#333;
+                    font-size:0.3rem;
+                    line-height:1rem;
+                    text-align:center;
+                }
+            }
         }
         .right{
             height:100%;
             background:white;
-            position:fixed;
-            right:0;
-            top:0.91rem;
+            margin-left: 1.9rem;
+            padding-left:0.22rem;
+            padding-top:0.22rem;
+            .bigbox{
+                width:6.0809rem;
+                overflow:hidden;
+                border-bottom: 0.01rem solid #ddd;
+                margin-top: 0.22rem;
+                .smallbox{
+                    width:50%;
+                    display: block;
+                    float: left;
+                    padding-right: 0.22rem;
+                    box-sizing: border-box;
+                    img{
+                        width:100%;
+                        height:100%;
+                    }
+                }
+            }
         }
     }
 </style>

@@ -29,7 +29,7 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       "/1.6":{
-        "target":"https://api.bloomate.com",
+        "target":"https://api.bloomate.com/1.6",
         "changeOrigin": true,
         "pathRewrite": {
         "^/1.6": ""
