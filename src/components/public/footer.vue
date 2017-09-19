@@ -32,6 +32,7 @@ export default {
     left: 0;
     bottom: 0;
     font-size: 0.3rem;
+    background:white;
     ul {
         li {
         float: left;

@@ -6,6 +6,15 @@
                 <input type="text" placeholder="请输入鲜花名称/关键字"/>
             </router-link>
         </header>
+
+        <div class="content">
+            <aside></aside>
+            <div class="right">
+
+            </div>
+        </div>
+
+
         <v-footer></v-footer>
     </div>
 </template>
@@ -37,7 +46,7 @@
             height:0.3rem;
             display:block;
             position:absolute;
-            left:0.8rem;
+            left:0.6rem;
             font-size:0.3rem;
             top:0.3rem;
             color:gray;
@@ -57,4 +66,24 @@
         }
     }
     
+
+    .content{
+        width:100%;
+        overflow:hidden;
+        aside{
+            width:1.8rem;
+            height:100%;
+            background: #ededed;
+            position:fixed;
+            left:0;
+            top:0.91rem;
+        }
+        .right{
+            height:100%;
+            background:white;
+            position:fixed;
+            right:0;
+            top:0.91rem;
+        }
+    }
 </style>
