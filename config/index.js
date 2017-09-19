@@ -28,7 +28,13 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-      
+      "/1.6":{
+        "target":"https://api.bloomate.com",
+        "changeOrigin": true,
+        "pathRewrite": {
+        "^/1.6": ""
+        }
+      }
     },
     // CSS Sourcemaps off by default because relative paths are "buggy"
     // with this option, according to the CSS-Loader README
