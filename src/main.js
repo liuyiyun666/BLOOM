@@ -8,7 +8,17 @@ import axios from "axios"
 import store from "./store/class"
 
 
-Vue.config.productionTip = false
+import { Swipe, SwipeItem } from 'mint-ui'
+
+
+import { Loadmore } from 'mint-ui';
+
+Vue.component(Loadmore.name, Loadmore);
+
+Vue.component(Swipe.name, Swipe);
+Vue.component(SwipeItem.name, SwipeItem);
+
+Vue.config.productionTip = false;
 
 Vue.component("v-footer",Footer)
 

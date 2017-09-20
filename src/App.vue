@@ -63,7 +63,7 @@ a:focus,*:focus {
 .setfz(320px);
 
 .setfz(@width){
-    @fz : @width / 750 * 100px;
+    @fz : @width / 1024 * 100px;
 
     @media screen and (max-width : (@width+2px) ){
         html{
@@ -73,7 +73,6 @@ a:focus,*:focus {
 }
 body{
     background: #fff;
-    color: #666;
 }
 
 </style>
